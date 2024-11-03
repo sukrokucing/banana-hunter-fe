@@ -7,9 +7,11 @@ export const AuthProvider = ({ children }) => {
     const [isLoading, setIsLoading] = useState(true);
 
     useEffect(() => {
-        const token = localStorage.getItem('access_token');
-        setIsAuthenticated(!!token);
-        setIsLoading(false);
+        return () => {
+            const token = localStorage.getItem('access_token');
+            setIsAuthenticated(!!token);
+            setIsLoading(false);
+        };
     }, []);
 
     const value = {
