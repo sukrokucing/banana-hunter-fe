@@ -4,8 +4,8 @@ export const AuthService = {
     register: async (userData) => {
         try {
             const response = await axios.post('/api/register', userData);
-            if (response.data.token) {
-                localStorage.setItem('token', response.data.token);
+            if (response.data.access_token) {
+                localStorage.setItem('access_token', response.data.access_token);
             }
             return response.data;
         } catch (error) {
@@ -16,8 +16,8 @@ export const AuthService = {
     login: async (credentials) => {
         try {
             const response = await axios.post('/api/login', credentials);
-            if (response.data.token) {
-                localStorage.setItem('token', response.data.token);
+            if (response.data.access_token) {
+                localStorage.setItem('access_token', response.data.access_token);
             }
             return response.data;
         } catch (error) {
@@ -29,7 +29,7 @@ export const AuthService = {
         try {
             await axios.post('/api/logout');
         } finally {
-            localStorage.removeItem('token');
+            localStorage.removeItem('access_token');
         }
     }
 };
