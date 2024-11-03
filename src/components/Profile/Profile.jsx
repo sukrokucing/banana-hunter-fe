@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { AuthService } from '../../services/auth.service';
 import axios from '../../utils/axios';
+import API_ENDPOINTS from '../../services/apiEndpoints';
 
 const Profile = () => {
     const [user, setUser] = useState(null);
@@ -9,12 +10,14 @@ const Profile = () => {
     const navigate = useNavigate();
 
     useEffect(() => {
-        fetchUserProfile();
+        return () => {
+            fetchUserProfile();
+        };
     }, []);
 
     const fetchUserProfile = async () => {
         try {
-            const response = await axios.get('/api/user');
+            const response = await axios.get(API_ENDPOINTS.USER.PROFILE);
             setUser(response.data);
         } catch (error) {
             console.error('Error fetching profile:', error);
@@ -23,10 +26,11 @@ const Profile = () => {
         }
     };
 
-    const handleLogout = async () => {
+    const handleLogout = async (e) => {
+        e?.preventDefault();
         try {
             await AuthService.logout();
-            navigate('/login');
+            navigate('/');
         } catch (error) {
             console.error('Logout error:', error);
         }
