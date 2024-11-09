@@ -3,17 +3,20 @@ import { useNavigate } from 'react-router-dom';
 import { AuthService } from '../../services/auth.service';
 import axios from '../../utils/axios';
 import API_ENDPOINTS from '../../services/apiEndpoints';
+import { useAuth } from '../../context/AuthContext';
 
 const Profile = () => {
     const [user, setUser] = useState(null);
     const [loading, setLoading] = useState(true);
     const navigate = useNavigate();
 
+    const { setIsAuthenticated } = useAuth();
+
     useEffect(() => {
+        fetchUserProfile();
         return () => {
-            fetchUserProfile();
         };
-    }, []);
+      }, []);
 
     const fetchUserProfile = async () => {
         try {
@@ -29,8 +32,10 @@ const Profile = () => {
     const handleLogout = async (e) => {
         e?.preventDefault();
         try {
-            await AuthService.logout();
-            navigate('/');
+            if(await AuthService.logout()) {
+                setIsAuthenticated(false);
+                navigate('/');
+            }
         } catch (error) {
             console.error('Logout error:', error);
         }
