@@ -1,6 +1,7 @@
 const BASE_URL = import.meta.env.VITE_API_BASE_URL || 'http://localhost:88';
 
 const API_ENDPOINTS = {
+  BASE_URL,
   AUTH: {
     LOGIN: `${BASE_URL}/api/login`,
     REGISTER: `${BASE_URL}/api/register`,
