@@ -1,58 +1,45 @@
-import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
-import { AuthProvider } from './context/AuthContext';
-import ProtectedRoute from './components/Routes/ProtectedRoute';
+import React from 'react';
+import {
+  BrowserRouter as Router,
+  Routes,
+  Route,
+  Navigate,
+} from 'react-router-dom';
 import Login from './components/Auth/Login';
-import Register from './components/Auth/Register';
 import Profile from './components/Profile/Profile';
-import { useAuth } from './context/AuthContext';
+import ProtectedRoute from './components/Routes/ProtectedRoute';
+import { useAuthStore } from './context/authStore';
 
-const AuthenticatedRoute = ({ children }) => {
-    const { isAuthenticated } = useAuth();
+function App() {
+  const { token } = useAuthStore();
 
-    if (isAuthenticated) {
-        return <Navigate to="/profile" replace />;
-    }
+  return (
+    <Router>
+      <Routes>
+        {/* Root route redirects based on auth status */}
+        <Route
+          path="/"
+          element={
+            token ? <Navigate to="/profile" /> : <Navigate to="/login" />
+          }
+        />
 
-    return children;
-};
+        {/* Auth routes */}
+        <Route path="/login" element={<Login />} />
+        <Route
+          path="/profile"
+          element={
+            <ProtectedRoute>
+              <Profile />
+            </ProtectedRoute>
+          }
+        />
 
-const App = () => {
-    return (
-        <AuthProvider>
-            <BrowserRouter>
-                <Routes>
-                    <Route
-                        path="/login"
-                        element={
-                            <AuthenticatedRoute>
-                                <Login />
-                            </AuthenticatedRoute>
-                        }
-                    />
-                    <Route
-                        path="/register"
-                        element={
-                            <AuthenticatedRoute>
-                                <Register />
-                            </AuthenticatedRoute>
-                        }
-                    />
-                    <Route
-                        path="/profile"
-                        element={
-                            <ProtectedRoute>
-                                <Profile />
-                            </ProtectedRoute>
-                        }
-                    />
-                    <Route
-                        path="/"
-                        element={<Navigate to="/profile" replace />}
-                    />
-                </Routes>
-            </BrowserRouter>
-        </AuthProvider>
-    );
-};
+        {/* Catch all route */}
+        <Route path="*" element={<Navigate to="/" />} />
+      </Routes>
+    </Router>
+  );
+}
 
 export default App;
