@@ -6,6 +6,7 @@ import {
   Navigate,
 } from 'react-router-dom';
 import Login from './components/Auth/Login';
+import Register from './components/Auth/Register';
 import Profile from './components/Profile/Profile';
 import ProtectedRoute from './components/Routes/ProtectedRoute';
 import { useAuthStore } from './context/authStore';
@@ -26,6 +27,7 @@ function App() {
 
         {/* Auth routes */}
         <Route path="/login" element={<Login />} />
+        <Route path="/register" element={<Register />} />
         <Route
           path="/profile"
           element={
