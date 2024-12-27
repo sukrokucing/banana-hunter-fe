@@ -2,7 +2,6 @@ import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useForm } from '@tanstack/react-form';
 import { z } from 'zod';
-import { zodValidator } from '@tanstack/zod-form-adapter';
 import { useAuthStore } from '../../context/authStore';
 import AuthService from '../../services/auth.service';
 
@@ -39,7 +38,6 @@ const Login = () => {
         setError(err.response?.data?.message || 'Login failed');
       }
     },
-    validatorAdapter: zodValidator(),
     validators: {
       onChange: loginSchema,
     },
