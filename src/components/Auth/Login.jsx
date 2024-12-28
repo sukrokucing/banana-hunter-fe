@@ -2,7 +2,6 @@ import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useForm } from '@tanstack/react-form';
 import { z } from 'zod';
-import { useAuthStore } from '../../context/authStore';
 import AuthService from '../../services/auth.service';
 
 const loginSchema = z.object({
@@ -20,7 +19,6 @@ const FieldInfo = ({ field }) => (
 
 const Login = () => {
   const navigate = useNavigate();
-  const { setAuth } = useAuthStore();
   const [error, setError] = React.useState('');
 
   const form = useForm({
@@ -32,7 +30,6 @@ const Login = () => {
       setError('');
       try {
         const data = await AuthService.login(value);
-        setAuth({ token: data.access_token, user: data.user });
         navigate('/profile');
       } catch (err) {
         setError(err.response?.data?.message || 'Login failed');
