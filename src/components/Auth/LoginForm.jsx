@@ -45,14 +45,21 @@ const LoginForm = () => {
 
   return (
     <div className="flex flex-col gap-6">
+      <div className="flex flex-col items-center gap-2 text-center">
+        <h1 className="text-2xl font-bold">Login to your account</h1>
+        <p className="text-balance text-sm text-muted-foreground">
+          Enter your email below to login to your account
+        </p>
+      </div>
       <form
         onSubmit={(e) => {
           e.preventDefault();
           e.stopPropagation();
           form.handleSubmit();
         }}
+        className="grid gap-6"
       >
-        <div>
+        <div className="grid gap-2">
           <form.Field
             name="email"
             validators={{
@@ -71,13 +78,11 @@ const LoginForm = () => {
                   onBlur={field.handleBlur}
                   onChange={(e) => field.handleChange(e.target.value)}
                 />
-                <FieldInfo field={field} />
               </>
             )}
           </form.Field>
         </div>
-
-        <div>
+        <div className="grid gap-2">
           <form.Field
             name="password"
             validators={{
@@ -102,14 +107,12 @@ const LoginForm = () => {
             )}
           </form.Field>
         </div>
-
         {error && <div className="error">{error}</div>}
-
         <form.Subscribe
           selector={(state) => [state.canSubmit, state.isSubmitting]}
         >
           {([canSubmit, isSubmitting]) => (
-            <Button type="submit" disabled={!canSubmit}>
+            <Button type="submit" className="w-full" disabled={!canSubmit}>
               {isSubmitting ? 'Logging in...' : 'Login'}
             </Button>
           )}
