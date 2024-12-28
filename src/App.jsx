@@ -5,12 +5,13 @@ import {
   Route,
   Navigate,
 } from 'react-router-dom';
-import Login from './components/Auth/Login';
+import LoginPage from './pages/LoginPage';
 import Register from './components/Auth/Register';
 import Profile from './components/Profile/Profile';
 import ProtectedRoute from './components/Routes/ProtectedRoute';
 import { useAuthStore } from './context/authStore';
 import { QueryClientProvider, QueryClient } from '@tanstack/react-query';
+import './index.css';
 
 function App() {
   const { token } = useAuthStore();
@@ -29,7 +30,7 @@ function App() {
           />
 
           {/* Auth routes */}
-          <Route path="/login" element={<Login />} />
+          <Route path="/login" element={<LoginPage />} />
           <Route path="/register" element={<Register />} />
           <Route
             path="/profile"
