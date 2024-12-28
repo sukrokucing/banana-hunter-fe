@@ -3,6 +3,9 @@ import { useNavigate } from 'react-router-dom';
 import { useForm } from '@tanstack/react-form';
 import { z } from 'zod';
 import AuthService from '../../services/auth.service';
+import { Button } from '@/components/ui/button';
+import { Input } from '@/components/ui/input';
+import { Label } from '@/components/ui/label';
 
 const loginSchema = z.object({
   email: z.string().email('Invalid email'),
@@ -17,7 +20,7 @@ const FieldInfo = ({ field }) => (
   </div>
 );
 
-const Login = () => {
+const LoginForm = () => {
   const navigate = useNavigate();
   const [error, setError] = React.useState('');
 
@@ -41,7 +44,7 @@ const Login = () => {
   });
 
   return (
-    <div>
+    <div className="flex flex-col gap-6">
       <form
         onSubmit={(e) => {
           e.preventDefault();
@@ -58,11 +61,12 @@ const Login = () => {
           >
             {(field) => (
               <>
-                <label htmlFor={field.name}>Email:</label>
-                <input
+                <Label htmlFor={field.name}>Email:</Label>
+                <Input
                   id={field.name}
                   type="email"
                   name={field.name}
+                  placeholder="m@example.com"
                   value={field.state.value}
                   onBlur={field.handleBlur}
                   onChange={(e) => field.handleChange(e.target.value)}
@@ -84,8 +88,8 @@ const Login = () => {
           >
             {(field) => (
               <>
-                <label htmlFor={field.name}>Password:</label>
-                <input
+                <Label htmlFor={field.name}>Password:</Label>
+                <Input
                   id={field.name}
                   type="password"
                   name={field.name}
@@ -105,9 +109,9 @@ const Login = () => {
           selector={(state) => [state.canSubmit, state.isSubmitting]}
         >
           {([canSubmit, isSubmitting]) => (
-            <button type="submit" disabled={!canSubmit}>
+            <Button type="submit" disabled={!canSubmit}>
               {isSubmitting ? 'Logging in...' : 'Login'}
-            </button>
+            </Button>
           )}
         </form.Subscribe>
       </form>
@@ -115,4 +119,4 @@ const Login = () => {
   );
 };
 
-export default Login;
+export default LoginForm;
