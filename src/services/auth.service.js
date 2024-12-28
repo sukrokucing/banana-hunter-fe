@@ -13,14 +13,14 @@ export const AuthService = {
   },
   register: async (userData) => {
     const response = await axios.post(API_ENDPOINTS.AUTH.REGISTER, userData);
-    const { access_token, user } = response.data;
-    useAuthStore.getState().setAuth({ user, token: access_token });
     console.log(response.data.message);
     return response.data;
   },
   logout: async () => {
-    await axios.post(API_ENDPOINTS.AUTH.LOGOUT);
+    const response = await axios.post(API_ENDPOINTS.AUTH.LOGOUT);
+    console.log(response.data.message);
     useAuthStore.getState().clearAuth();
+    return response.data;
   },
 };
 
