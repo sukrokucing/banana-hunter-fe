@@ -10,37 +10,41 @@ import Register from './components/Auth/Register';
 import Profile from './components/Profile/Profile';
 import ProtectedRoute from './components/Routes/ProtectedRoute';
 import { useAuthStore } from './context/authStore';
+import { QueryClientProvider, QueryClient } from '@tanstack/react-query';
 
 function App() {
   const { token } = useAuthStore();
+  const queryClient = new QueryClient();
 
   return (
-    <Router>
-      <Routes>
-        {/* Root route redirects based on auth status */}
-        <Route
-          path="/"
-          element={
-            token ? <Navigate to="/profile" /> : <Navigate to="/login" />
-          }
-        />
+    <QueryClientProvider client={queryClient}>
+      <Router>
+        <Routes>
+          {/* Root route redirects based on auth status */}
+          <Route
+            path="/"
+            element={
+              token ? <Navigate to="/profile" /> : <Navigate to="/login" />
+            }
+          />
 
-        {/* Auth routes */}
-        <Route path="/login" element={<Login />} />
-        <Route path="/register" element={<Register />} />
-        <Route
-          path="/profile"
-          element={
-            <ProtectedRoute>
-              <Profile />
-            </ProtectedRoute>
-          }
-        />
+          {/* Auth routes */}
+          <Route path="/login" element={<Login />} />
+          <Route path="/register" element={<Register />} />
+          <Route
+            path="/profile"
+            element={
+              <ProtectedRoute>
+                <Profile />
+              </ProtectedRoute>
+            }
+          />
 
-        {/* Catch all route */}
-        <Route path="*" element={<Navigate to="/" />} />
-      </Routes>
-    </Router>
+          {/* Catch all route */}
+          <Route path="*" element={<Navigate to="/" />} />
+        </Routes>
+      </Router>
+    </QueryClientProvider>
   );
 }
 
