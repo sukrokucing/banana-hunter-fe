@@ -1,11 +1,12 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useForm } from '@tanstack/react-form';
-import { string, z } from 'zod';
+import { z } from 'zod';
 import AuthService from '../../services/auth.service';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
+import { Toggle } from '@/components/ui/toggle';
 import {
   Card,
   CardHeader,
@@ -13,7 +14,7 @@ import {
   CardDescription,
   CardContent,
 } from '@/components/ui/card';
-import { Loader2 } from 'lucide-react';
+import { Loader2, Eye, EyeOff } from 'lucide-react';
 
 const loginSchema = z.object({
   email: z.string().email('Invalid email'),
@@ -31,6 +32,7 @@ const FieldInfo = ({ field }) => (
 const LoginForm = () => {
   const navigate = useNavigate();
   const [error, setError] = React.useState('');
+  const [showPassword, setShowPassword] = React.useState(false);
 
   const form = useForm({
     defaultValues: {
@@ -104,14 +106,27 @@ const LoginForm = () => {
                 {(field) => (
                   <>
                     <Label htmlFor={field.name}>Password:</Label>
-                    <Input
-                      id={field.name}
-                      type="password"
-                      name={field.name}
-                      value={field.state.value}
-                      onBlur={field.handleBlur}
-                      onChange={(e) => field.handleChange(e.target.value)}
-                    />
+                    <div className="flex w-full max-w-sm items-center space-x-2">
+                      <Input
+                        id={field.name}
+                        type={showPassword ? 'text' : 'password'}
+                        name={field.name}
+                        value={field.state.value}
+                        onBlur={field.handleBlur}
+                        onChange={(e) => field.handleChange(e.target.value)}
+                      />
+
+                      <Toggle
+                        aria-label="Toggle"
+                        onClick={() => setShowPassword(!showPassword)}
+                      >
+                        {showPassword ? (
+                          <Eye className="h-4 w-4" />
+                        ) : (
+                          <EyeOff className="h-4 w-4" />
+                        )}
+                      </Toggle>
+                    </div>
                     <FieldInfo field={field} />
                   </>
                 )}
