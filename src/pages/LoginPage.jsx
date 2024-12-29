@@ -1,11 +1,15 @@
 import LoginForm from '../components/Auth/LoginForm';
+// import { BackgroundLines } from '@/components/ui/BackgroundLines';
+import { BackgroundLines } from '@/components/ui/background-lines';
 
 export default function LoginPage() {
   return (
-    <div className="flex min-h-svh w-full items-center justify-center p-6 md:p-10">
-      <div className="w-full max-w-sm">
-        <LoginForm />
+    <BackgroundLines className="flex items-center justify-center w-full flex-col px-4">
+      <div className="z-20 flex min-h-svh w-full items-center justify-center p-6 md:p-10">
+        <div className="w-full max-w-sm">
+          <LoginForm />
+        </div>
       </div>
-    </div>
+    </BackgroundLines>
   );
 }
