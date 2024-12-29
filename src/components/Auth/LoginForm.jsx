@@ -1,7 +1,7 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useForm } from '@tanstack/react-form';
-import { z } from 'zod';
+import { string, z } from 'zod';
 import AuthService from '../../services/auth.service';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
@@ -13,6 +13,7 @@ import {
   CardDescription,
   CardContent,
 } from '@/components/ui/card';
+import { Loader2 } from 'lucide-react';
 
 const loginSchema = z.object({
   email: z.string().email('Invalid email'),
@@ -122,7 +123,14 @@ const LoginForm = () => {
             >
               {([canSubmit, isSubmitting]) => (
                 <Button type="submit" className="w-full" disabled={!canSubmit}>
-                  {isSubmitting ? 'Logging in...' : 'Login'}
+                  {isSubmitting ? (
+                    <>
+                      <Loader2 className="animate-spin" />
+                      {'logging in...'}
+                    </>
+                  ) : (
+                    'Login'
+                  )}
                 </Button>
               )}
             </form.Subscribe>
