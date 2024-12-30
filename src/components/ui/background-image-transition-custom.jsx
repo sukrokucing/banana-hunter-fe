@@ -1,6 +1,5 @@
 'use client';
 import React, { useEffect, useState } from 'react';
-import { cn } from '@/lib/utils';
 
 export const BackgroundImageTransition = ({
   className,
@@ -37,26 +36,4 @@ export const BackgroundImageTransition = ({
       ))}
     </div>
   );
-
-  //   return (
-  //     <div
-  //       className={cn('min-h-svh relative isolate overflow-hidden', className)}
-  //     >
-  //       {images.map((image, index) => (
-  //         <div
-  //           key={index}
-  //           className={`absolute size-full object-cover inset-0 transition-opacity`}
-  //           style={{
-  //             backgroundImage: `url(${image})`,
-  //             transition: `transform ${interval}ms ease-out, opacity ${interval}ms`,
-  //             transform:
-  //               index === currentImageIndex ? `scale(1.1,1.1)` : `scale(1.3,1.3)`,
-  //             opacity: index === currentImageIndex ? 1 : 0,
-  //             filter: `grayscale(1%)`,
-  //             zIndex: index === currentImageIndex ? 20 : 10,
-  //           }}
-  //         ></div>
-  //       ))}
-  //     </div>
-  //   );
 };
