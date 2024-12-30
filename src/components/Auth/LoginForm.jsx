@@ -54,7 +54,7 @@ const LoginForm = () => {
   });
 
   return (
-    <div className="flex flex-col gap-6">
+    <div className="flex flex-col gap-6 z-30">
       <Card>
         <CardHeader>
           <CardTitle className="text-2xl">Login</CardTitle>
