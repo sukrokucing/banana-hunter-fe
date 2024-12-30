@@ -9,6 +9,7 @@ import LoginPage from './pages/LoginPage';
 import Register from './components/Auth/Register';
 import Profile from './components/Profile/Profile';
 import ProtectedRoute from './components/Routes/ProtectedRoute';
+import WeddingInvitationPage from './pages/WeddingInvitationPage';
 import { useAuthStore } from './context/authStore';
 import { QueryClientProvider, QueryClient } from '@tanstack/react-query';
 import './index.css';
@@ -30,6 +31,10 @@ function App() {
           />
 
           {/* Auth routes */}
+          <Route
+            path="/wedding-invitation"
+            element={<WeddingInvitationPage />}
+          />
           <Route path="/login" element={<LoginPage />} />
           <Route path="/register" element={<Register />} />
           <Route
@@ -42,7 +47,7 @@ function App() {
           />
 
           {/* Catch all route */}
-          <Route path="*" element={<Navigate to="/" />} />
+          {/* <Route path="*" element={<Navigate to="/" />} /> */}
         </Routes>
       </Router>
     </QueryClientProvider>
