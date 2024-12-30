@@ -62,5 +62,12 @@
   }
   body {
     @apply bg-background text-foreground;
+    @apply font-playfair;
   }
+}
+@font-face {
+    font-family: 'Playfair Display';
+    src: url('/fonts/PlayfairDisplay-Regular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
 }
