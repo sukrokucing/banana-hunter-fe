@@ -1,6 +1,6 @@
 const Preloader = () => {
   return (
-    <div className="absolute animate-pulse inset-0 size-full object-cover md:object-scale-down z-40 flex items-center justify-center">
+    <div className="absolute animate-pulse inset-0 size-full object-cover md:object-scale-down z-40 flex items-center justify-center font-playfair">
       {/* Heart SVG */}
       <div>
         <svg
