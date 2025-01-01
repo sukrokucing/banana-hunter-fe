@@ -16,11 +16,11 @@ const Preloader = () => {
       </div>
 
       <div className="absolute text-center text-xl font-semibold text-white z-40">
-        Inka
+        Jimmy
         <br />
         <label className="text-sm text-white">&amp;</label>
         <br />
-        Jimmy
+        Inka
       </div>
     </div>
   );
