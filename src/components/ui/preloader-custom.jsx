@@ -6,7 +6,7 @@ const Preloader = () => {
         <svg
           xmlns="http://www.w3.org/2000/svg"
           fill="currentColor"
-          className="text-cyan-700/90 w-36 h-36"
+          className="text-rose-900/60 w-40 h-40"
           viewBox="0 0 378 378"
         >
           <g>
@@ -15,7 +15,7 @@ const Preloader = () => {
         </svg>
       </div>
 
-      <div className="absolute text-center text-xl font-semibold text-white z-40">
+      <div className="absolute font-playfair text-center text-xl font-semibold text-white z-40">
         Jimmy
         <br />
         <label className="text-sm text-white">&amp;</label>
