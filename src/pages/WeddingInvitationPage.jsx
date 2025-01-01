@@ -54,14 +54,11 @@ export default function WeddingInvitationPage() {
                   Saturday, 16th Aug 2025
                 </h3>
                 <div className="mt-10 flex items-center justify-center gap-x-6">
-                  <a
-                    href="#"
-                    className="rounded-md bg-indigo-500 px-3.5 py-2.5 text-sm text-white shadow-sm hover:bg-indigo-400 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-400"
-                  >
-                    Get started
-                  </a>
+                  <button className="inline-flex h-12 animate-shimmer items-center justify-center rounded-md border border-[#F9F2EB] bg-[linear-gradient(110deg,#F9F2EB,45%,white,55%,#F9F2EB)] bg-[length:300%_100%] px-6 font-rubik text-rose-900/70 transition-colors focus:outline-none focus:ring-2 focus:ring-slate-400 focus:ring-offset-2 focus:ring-offset-slate-50">
+                    RSVP
+                  </button>
                   <a href="#" className="text-sm/6 text-white">
-                    Learn more <span aria-hidden="true">→</span>
+                    Read more <span aria-hidden="true">→</span>
                   </a>
                 </div>
               </div>
