@@ -6,6 +6,8 @@ module.exports = {
     extend: {
       fontFamily: {
         playfair: ['Playfair Display', 'serif'],
+        sacramento: ['Sacramento'],
+        rubik: ['Rubik'],
       },
       borderRadius: {
         lg: 'var(--radius)',

@@ -1,10 +1,10 @@
 import { useState, useEffect } from 'react';
 import { BackgroundImageTransition } from '@/components/ui/background-image-transition-custom';
-import image1 from '../assets/hero-img1.jpg';
-import image2 from '../assets/hero-img2.jpg';
-import image3 from '../assets/hero-img3.jpg';
-import image4 from '../assets/hero-img4.jpg';
-import image5 from '../assets/hero-img5.jpg';
+import image1 from '../assets/test-1.jpeg';
+import image2 from '../assets/test-2.jpeg';
+import image3 from '../assets/test-3.jpeg';
+import image4 from '../assets/test-4.jpeg';
+import image5 from '../assets/test-5.jpeg';
 import tulips from '../assets/tulip.svg';
 import Preloader from '@/components/ui/preloader-custom';
 
@@ -44,13 +44,13 @@ export default function WeddingInvitationPage() {
                 <h2 className="text-xl font-rubik py-3">SAVE THE DATE</h2>
                 <h1 className="text-balance text-6xl tracking-tight text-white sm:text-8xl">
                   <span className="block sm:inline tracking-wider font-sacramento">
-                    Inka
-                    <span className="text-5xl"> &amp; </span>
                     Jimmy
+                    <span className="text-5xl"> &amp; </span>
+                    Inka
                   </span>
                 </h1>
                 <hr className="w-20 mx-auto border-2 border-white my-7" />
-                <h3 className="text-xl font-rubik py-3">
+                <h3 className="text-xl font-rubik py-1">
                   Saturday, 16th Aug 2025
                 </h3>
                 <div className="mt-10 flex items-center justify-center gap-x-6">
