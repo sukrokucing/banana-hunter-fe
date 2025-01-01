@@ -5,7 +5,6 @@ import image2 from '../assets/test-2.jpeg';
 import image3 from '../assets/test-3.jpeg';
 import image4 from '../assets/test-4.jpeg';
 import image5 from '../assets/test-5.jpeg';
-import tulips from '../assets/tulip.svg';
 import Preloader from '@/components/ui/preloader-custom';
 
 const images = [image1, image2, image3, image4, image5];
