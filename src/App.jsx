@@ -26,7 +26,11 @@ function App() {
           <Route
             path="/"
             element={
-              token ? <Navigate to="/profile" /> : <Navigate to="/login" />
+              token ? (
+                <Navigate to="/profile" />
+              ) : (
+                <Navigate to="/wedding-invitation" />
+              )
             }
           />
 
