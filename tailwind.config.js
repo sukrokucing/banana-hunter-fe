@@ -6,6 +6,10 @@ module.exports = {
     extend: {
       animation: {
         shimmer: 'shimmer 2s linear infinite',
+        'tracking-in-expand':
+          'tracking-in-expand 0.7s cubic-bezier(0.215, 0.610, 0.355, 1.000) both',
+        'text-focus-in':
+          'text-focus-in 1.7s cubic-bezier(0.550, 0.085, 0.680, 0.530)   both',
       },
       keyframes: {
         shimmer: {
@@ -14,6 +18,28 @@ module.exports = {
           },
           to: {
             backgroundPosition: '-200% 0',
+          },
+        },
+        'tracking-in-expand': {
+          '0%': {
+            'letter-spacing': '-.5em',
+            opacity: '0',
+          },
+          '40%': {
+            opacity: '.6',
+          },
+          to: {
+            opacity: '1',
+          },
+        },
+        'text-focus-in': {
+          '0%': {
+            filter: 'blur(12px)',
+            opacity: '0',
+          },
+          to: {
+            filter: 'blur(0)',
+            opacity: '1',
           },
         },
       },

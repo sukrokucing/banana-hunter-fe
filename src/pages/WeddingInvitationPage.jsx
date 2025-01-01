@@ -35,14 +35,14 @@ export default function WeddingInvitationPage() {
 
   return (
     <>
-      <div className="bg-cyan-950">
+      <div className="bg-cyan-950 animate-tracking-in-expand">
         <div className="relative w-screen h-screen isolate overflow-hidden">
           <BackgroundImageTransition interval={7000} images={images} />
           <div className="w-screen h-screen font-playfair absolute bg-[#F9F2EB]/30">
             <div className="mx-auto max-w-2xl py-64">
               <div className="text-center">
                 <h2 className="text-xl font-rubik py-3">SAVE THE DATE</h2>
-                <h1 className="text-balance text-6xl tracking-tight text-white sm:text-8xl">
+                <h1 className="text-balance text-6xl tracking-tight text-white sm:text-8xl animate-text-focus-in">
                   <span className="block sm:inline tracking-wider font-sacramento">
                     Jimmy
                     <span className="text-5xl"> &amp; </span>
