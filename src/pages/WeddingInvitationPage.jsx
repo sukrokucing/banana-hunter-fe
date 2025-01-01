@@ -1,10 +1,10 @@
 import { useState, useEffect } from 'react';
 import { BackgroundImageTransition } from '@/components/ui/background-image-transition-custom';
-import image1 from '../assets/hero-img1.jpg';
-import image2 from '../assets/hero-img2.jpg';
-import image3 from '../assets/hero-img3.jpg';
-import image4 from '../assets/hero-img4.jpg';
-import image5 from '../assets/hero-img5.jpg';
+import image1 from '../assets/test-1.jpeg';
+import image2 from '../assets/test-2.jpeg';
+import image3 from '../assets/test-3.jpeg';
+import image4 from '../assets/test-4.jpeg';
+import image5 from '../assets/test-5.jpeg';
 import tulips from '../assets/tulip.svg';
 import Preloader from '@/components/ui/preloader-custom';
 
